@@ -21,7 +21,7 @@
         <div class="wrapper">
             <div class="inner-warpper text-center">
                 <h2 class="title">Login to your account</h2>
-                <form action="" id="formvalidate">
+                <form action="loginServlet" method="post" id="formvalidate">
                     <div class="input-group">
                         <label class="palceholder" for="userName">User Name</label>
                         <input class="form-control" name="userName" id="userName" type="text" placeholder="" />

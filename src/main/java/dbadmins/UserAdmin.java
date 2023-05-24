@@ -33,20 +33,26 @@ public class UserAdmin {
         }
     }
     
-    public void auth(int phone, String name){
+    public User auth(String name, String password) throws Exception {
         try{
-            String query = String.format("SELECT * FROM user WHERE name = %s AND phone = %d", name, phone);
+            String query = String.format("SELECT * FROM user WHERE name = '%s' AND password = '%s'", name, password);
             ResultSet rs = stmt.executeQuery(query);
-            User user = new User();
-            user.setName(rs.getString("name"));
-            user.setPhone(rs.getInt("phone"));
+            if(rs.next()){
+                User user = new User();
+                user.setName(rs.getString("name"));
+                user.setPhone(rs.getInt("phone"));
+                return user;
+            } else {
+                return null;
+            }
 //            rs.
 //            while (rs.next()) {
 //                String name = rs.getString("genre_name");
 //                System.out.println("Name: " + name);
 //            }
-        } catch(SQLException e){
+        } catch(SQLException e) {
             System.err.println("Error: " + e.getMessage());
+            throw e;
         }
     }
     
