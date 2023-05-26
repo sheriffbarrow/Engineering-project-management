@@ -40,6 +40,9 @@
                             <label for="rememberMe">Remember Me</label>
                         </div>
                     </div>
+                    <div style="color:red; margin:25px 0">
+                        ${msg}
+                    <div/>
                 </form>
             </div>
         </div>

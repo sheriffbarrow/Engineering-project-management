@@ -10,14 +10,10 @@ package entities;
  */
 public class Project {
     int id;
-    String name;
-    String desc;
+    public String name;
+    public String desc;
     
-    public Project(int pId, String pName, String pDesc){
-        this.id = pId;
-        this.name = pName;
-        this.desc = pDesc;
-    }
+    public Project(){}
     
     //setters
     

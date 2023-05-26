@@ -11,6 +11,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import dbadmins.*;
+import entities.User;
+import jakarta.servlet.RequestDispatcher;
 
 /**
  *
@@ -18,6 +21,7 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "loginServlet", urlPatterns = {"/loginServlet"})
 public class loginServlet extends HttpServlet {
+    UserAdmin userAdmin = new UserAdmin();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,19 +36,52 @@ public class loginServlet extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet loginServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet loginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</mlbody>\");\n" +
-"            out.println(\"</ht>");
+        
+        // get data from ui
+        String username = request.getParameter("userName");
+        String password = request.getParameter("userPassword");
+        
+        // interact with backend
+        try{
+            User user = userAdmin.auth(username, password);
+            String msg = "";
+            if(user == null){
+                System.out.println("User not authenticated");
+                msg = "User not found";
+                request.setAttribute("msg", msg);
+                RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+                rd.forward(request, response);
+            } else{
+                System.out.println(user.name);
+                
+            }
+        } catch(Exception e){
+            System.out.println(e.getMessage());
         }
+        
+        // response
+        
+        
+//        response.setContentType("text/html;charset=UTF-8");
+//        try (PrintWriter out = response.getWriter()) {
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet loginServlet</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet loginServlet at " + request.getContextPath() + "</h1>");
+//            out.println("</mlbody>\");\n" +
+//"            out.println(\"</ht>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet loginServlet</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet loginServlet at " + request.getContextPath() + "</h1>");
+//            out.println("</mlbody>\");\n" +
+//"            out.println(\"</ht>");
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -4,14 +4,12 @@
  */
 package dbadmins;
 
-import entities.User;
+import entities.Task;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import entities.Project;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +17,7 @@ import java.util.List;
  *
  * @author EJAS
  */
-public class ProjectAdmin {
+public class TaskAdmin {
     
     Statement stmt;
     Connection conn;
@@ -27,8 +25,7 @@ public class ProjectAdmin {
     String username = "root";
     String password = "ejas";
     
-    
-    public ProjectAdmin(){
+    public TaskAdmin(){
         try{
             this.conn = DriverManager.getConnection(url, username, password);
             System.out.println("Coonection successful");
@@ -38,20 +35,25 @@ public class ProjectAdmin {
         }
     }
     
-    public List<Project> getProjects(int userId)throws Exception{
+    public List<Task> getTasks(int projId, String status)throws Exception{
         try{
-            String query = String.format("SELECT * FROM project WHERE user_id = %d", userId);
+            String query = String.format("SELECT * FROM Task WHERE project_id = %d AND status = '%s'", projId, status);
             ResultSet rs = stmt.executeQuery(query);
-            List<Project> projects = new ArrayList<Project>();
+            List<Task> tasks = new ArrayList<Task>();
             
             while (rs.next()) {
-                Project thisProject = new Project();
-                thisProject.setId(rs.getInt("project_id"));
-                thisProject.setName(rs.getString("name"));
-                thisProject.setDesc(rs.getString("description"));
-                projects.add(thisProject);
+                Task thisTask = new Task();
+                
+                thisTask.setId(rs.getInt("task_id"));
+                thisTask.setName(rs.getString("name"));
+                thisTask.setDesc(rs.getString("description"));
+                thisTask.setStatus(rs.getString("status"));
+                thisTask.setStartDate(rs.getDate("start_date"));
+                thisTask.setEndDate(rs.getDate("end_date"));
+                
+                tasks.add(thisTask);
             }
-            return projects;
+            return tasks;
         } catch(SQLException e){
             System.err.println("Error: " + e.getMessage());
             throw e;

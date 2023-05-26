@@ -11,24 +11,51 @@ import java.util.*;
  */
 public class Task {
     int id;
-    int projectId;
-    int userId;
-    String name;
-    String desc;
-    String status;
-    Date startDate;
-    Date endDate;
+    public int projectId;
+    public int userId;
+    public String name;
+    public String desc;
+    public String status;
+    public Date startDate;
+    public Date endDate;
     
     
-    public Task(int pId, int pProjectId, int pUserId, String pName, String pDesc, String pStatus, Date pStartDate, Date pEndDate){
-           this.id = pId;
-           this.projectId = pProjectId;
-           this.userId = pUserId;
-           this.name = pName;
-           this.desc = pDesc;
-           this.status = pStatus;
-           this.startDate = pStartDate;
-           this.endDate = pEndDate;
+    public Task(){}
+
+    public void setId(int id) {
+        this.id = id;
     }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+    
+    
+    
+    
     
 }
