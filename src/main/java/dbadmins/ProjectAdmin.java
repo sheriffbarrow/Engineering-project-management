@@ -25,9 +25,9 @@ public class ProjectAdmin {
     Connection conn;
     String url = "jdbc:mysql://localhost/project_management";
     String username = "root";
-    String password = "ejas";
+    String password = "s0249612579S";
     
-    
+    /*
     public ProjectAdmin(){
         try{
             this.conn = DriverManager.getConnection(url, username, password);
@@ -57,5 +57,5 @@ public class ProjectAdmin {
             throw e;
         }
     }
-    
+    */
 }

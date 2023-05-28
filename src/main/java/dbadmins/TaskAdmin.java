@@ -23,8 +23,8 @@ public class TaskAdmin {
     Connection conn;
     String url = "jdbc:mysql://localhost/project_management";
     String username = "root";
-    String password = "ejas";
-    
+    String password = "your password";
+    /*
     public TaskAdmin(){
         try{
             this.conn = DriverManager.getConnection(url, username, password);
@@ -36,6 +36,7 @@ public class TaskAdmin {
     }
     
     public List<Task> getTasks(int projId, String status)throws Exception{
+        
         try{
             String query = String.format("SELECT * FROM Task WHERE project_id = %d AND status = '%s'", projId, status);
             ResultSet rs = stmt.executeQuery(query);
@@ -59,5 +60,5 @@ public class TaskAdmin {
             throw e;
         }
     }
-    
+    */
 }

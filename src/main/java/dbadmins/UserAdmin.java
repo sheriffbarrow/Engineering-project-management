@@ -4,56 +4,54 @@
  */
 package dbadmins;
 
+import databaseConnection.DBConnection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import entities.User;
+import entities.UserBean;
+import java.sql.PreparedStatement;
 
 /**
  *
  * @author EJAS
  */
 public class UserAdmin {
-    Statement stmt;
-    Connection conn;
-    String url = "jdbc:mysql://localhost/project_management";
-    String username = "root";
-    String password = "ejas";
     
     
-    public UserAdmin(){
+    public UserBean login(UserBean userbean) throws SQLException, Exception{
+        
+        boolean loggedIn = false;
+        Connection conn;
+        String sql = "SELECT * FROM USER WHERE name = ? and password = ?";
+        
         try{
-            this.conn = DriverManager.getConnection(url, username, password);
-            System.out.println("Coonection successful");
-            this.stmt = conn.createStatement();
-        } catch(SQLException e){
-            System.err.println("Error: " + e.getMessage());
-        }
-    }
-    
-    public User auth(String name, String password) throws Exception {
-        try{
-            String query = String.format("SELECT * FROM user WHERE name = '%s' AND password = '%s'", name, password);
-            ResultSet rs = stmt.executeQuery(query);
-            if(rs.next()){
-                User user = new User();
-                user.setName(rs.getString("name"));
-                user.setPhone(rs.getInt("phone"));
-                return user;
-            } else {
-                return null;
+            conn = DBConnection.dBconnect();
+            try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, userbean.getUsername());
+                stmt.setString(2, userbean.getPassword());
+                try (ResultSet result = stmt.executeQuery()) {
+                    loggedIn = result.next();
+                    if(loggedIn){
+                        System.out.println("logged in successful");
+                    }else{
+                        System.out.println("could not logged in");
+                    }
+                    result.close();
+                    stmt.close();
+                }
             }
-//            rs.
-//            while (rs.next()) {
-//                String name = rs.getString("genre_name");
-//                System.out.println("Name: " + name);
-//            }
-        } catch(SQLException e) {
-            System.err.println("Error: " + e.getMessage());
-            throw e;
+        }catch(SQLException e){
+            throw new Exception(e.getMessage());
+            
+        }finally{
+            System.out.println("connection closed!!");
+            DBConnection.closeConnection();
         }
+        return null;
+
     }
-    
+
+
 }

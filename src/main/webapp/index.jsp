@@ -11,17 +11,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Page</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-        <link href="../../css/login.css" rel="stylesheet" type="text/css"/>
+        <link href="css/login.css" rel="stylesheet" type="text/css"/>
     </head>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <body>
 
         <div class="logo text-center">
-            <h1>Logo Here</h1>
+            <h1 >Engineering Project Management</h1>
         </div>
         <div class="wrapper">
             <div class="inner-warpper text-center">
                 <h2 class="title">Login to your account</h2>
-                <form action="loginServlet" method="post" id="formvalidate">
+                <form action="userServlet" method="post" id="formvalidate">
                     <div class="input-group">
                         <label class="palceholder" for="userName">User Name</label>
                         <input class="form-control" name="userName" id="userName" type="text" placeholder="" />
@@ -49,6 +50,6 @@
         <!-- partial -->
         <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js'></script>
-        <script src="../../js/script.js" type="text/javascript"></script>
+        <script src="js/script.js" type="text/javascript"></script>
     </body>
 </html>

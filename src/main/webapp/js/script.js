@@ -29,11 +29,11 @@
     rules: {
       userName: {
         required: true,
-        minlength: 6
+        minlength: 3
       },
       userPassword: {
         required: true,
-        minlength: 6
+        minlength: 3
       }
     },
     messages: {

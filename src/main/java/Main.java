@@ -19,13 +19,17 @@ public class Main {
         TaskAdmin taskAdmin = new TaskAdmin();
         try{
             // login test:--------------------------------------------------
-            User user = userAdmin.auth("ejas", "something");
-            if(user == null){
-                System.out.println("User not authenticated");
-            } else{
-                System.out.println(user.name);
-            }
+            UserBean bean = new UserBean();
+            bean.setUsername("sheriff");
+            bean.setPassword("12345");
             
+            System.out.println("user bean: " + bean.getUsername());
+            System.out.println("user bean: " + bean.getPassword());
+
+            UserAdmin useradmin = new UserAdmin();
+            useradmin.login(bean);
+            
+            /*
             // get projects tests:------------------------------------------
             List<Project> projects = proAdmin.getProjects(2);
             if(projects.isEmpty()){
@@ -44,7 +48,7 @@ public class Main {
                 for(int i =0;i<tasks.size();i++){
                     System.out.println(tasks.get(i).name);
                 }
-            }
+            }*/
             
         } catch(Exception e){
             System.out.println(e.getMessage());

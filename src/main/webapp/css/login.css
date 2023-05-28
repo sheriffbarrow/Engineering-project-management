@@ -10,12 +10,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 body {
   background: #f2f2f2;
 }
+
 .animate {
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
+
 .text-center {
   text-align: center;
+  color: #00A885;
 }
 .pull-left {
   float: left;
@@ -58,7 +61,7 @@ input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px white inset !important;
 }
 .logo h1 {
-  color: #00A885;
+  color: #666600;;
   margin-bottom: -12px;
 }
 input[type="checkbox"] {
