@@ -9,9 +9,10 @@ package entities;
  * @author EJAS
  */
 public class Project {
-    int id;
+    public int id;
     public String name;
     public String desc;
+    public int userId;
     
     public Project(){}
     
@@ -26,6 +27,10 @@ public class Project {
     
     public void setDesc(String pDesc){
         this.desc = pDesc;
+    }
+    
+    public void setUserId(int pUserId){
+        this.userId = pUserId;
     }
     
 }
