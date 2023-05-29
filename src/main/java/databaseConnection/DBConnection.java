@@ -17,8 +17,8 @@ public class DBConnection {
     private static Connection conn = null;
     
     private static final String username = "root";
-    private static final String password = "your password";
-    private static final String url = "jdbc:mysql://localhost/project_management?useTimeZone=true&serverTimezone=UTC&autoReconnect=true&useSSL=false";
+    private static final String password = "s0249612579S";
+    private static final String url = "jdbc:mysql://localhost/project_management?autoReconnect=true&useSSL=false";
     
     
     public static Connection dBconnect() throws Exception {

@@ -29,10 +29,10 @@ public class userServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            /* A post request for password validity. */
-            /* A post request for password validity. */
+            /* A post request for password validity. */          
             String username = request.getParameter("userName");
             String password = request.getParameter("userPassword");
+            
             UserBean userbean = new UserBean();
             userbean.setUsername(username);
             userbean.setPassword(password);
