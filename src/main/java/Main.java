@@ -20,8 +20,8 @@ public class Main {
         try{
             // login test:--------------------------------------------------
             UserBean bean = new UserBean();
-            bean.setUsername("sheriff");
-            bean.setPassword("12345");
+            bean.setUsername("ejas js");
+            bean.setPassword("something");
             
             System.out.println("user bean: " + bean.getUsername());
             System.out.println("user bean: " + bean.getPassword());

@@ -35,6 +35,7 @@ public class UserAdmin {
                     loggedIn = result.next();
                     if(loggedIn){
                         System.out.println("logged in successful");
+                        return userbean;
                     }else{
                         System.out.println("could not logged in");
                     }

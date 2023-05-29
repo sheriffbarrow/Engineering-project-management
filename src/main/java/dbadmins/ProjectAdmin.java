@@ -4,7 +4,7 @@
  */
 package dbadmins;
 
-import entities.User;
+//import entities.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
