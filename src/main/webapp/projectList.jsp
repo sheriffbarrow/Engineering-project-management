@@ -9,42 +9,51 @@
 <html>
     <head>
         <link href="css/projectList.css" rel="stylesheet" type="text/css"/>
-         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Project List</title>
     </head>
     <body>
-        <div class="shadow p-4 mb-4 bg-white">
+        <div class="titles">
             <h1>Project List</h1>
         </div>
-        
 
-        <div class="shadow-lg p-2 mb-2 bg-white" class="content">
-            <div class="shadow-sm p-4 mb-4 bg-white">
-                <h1>Title</h1>
-                <div>
-                    description
-                </div>
+
+        <div class="box effect">
+            <div class="project-title">
+                <h1>Title of project</h1>
             </div>
+            <div class="description">
+                <p>
+                    description
+                </p>
+            </div>
+
         </div>
-        <div class="shadow-lg p-2 mb-2 bg-white" class="content">
-            <div class="shadow-sm p-4 mb-4 bg-white">
-                <h1>Title</h1>
-                <div>
-                    description
-                </div>
+        <div class="box effect">
+            <div class="project-title">
+                <h1>Title of project</h1>
             </div>
+            <div class="description">
+                <p>
+                    In CSS, a margin is the space around an element's border, while padding is the space between an element's border and the element's content. Put another way, the margin property controls the space outside an element, and the padding property controls the space inside an element
+                    In CSS, a margin is the space around an element's border, while padding is the space between an element's border and the element's content. Put another way, the margin property controls the space outside an element, and the padding property controls the space inside an element
+                    In CSS, a margin is the space around an element's border, while padding is the space between an element's border and the element's content. Put another way, the margin property controls the space outside an element, and the padding property controls the space inside an element
+                    In CSS, a margin is the space around an element's border, while padding is the space between an element's border and the element's content. Put another way, the margin property controls the space outside an element, and the padding property controls the space inside an element
+                    
+                </p>
+            </div>
+
         </div>
-        <div class="shadow-lg p-2 mb-2 bg-white" class="content">
-            <div class="shadow-sm p-4 mb-4 bg-white">
-                <h1>Title</h1>
-                <div>
-                    description
-                </div>
+        <div class="box effect">
+            <div class="project-title">
+                <h1>Title of project</h1>
             </div>
+            <div class="description">
+                <p>
+                    description
+                </p>
+            </div>
+
         </div>
     </body>
 </html>
