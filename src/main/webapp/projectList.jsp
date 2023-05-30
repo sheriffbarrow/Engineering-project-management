@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="entities.Project" %>
+<%@page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,47 +15,32 @@
         <title>Project List</title>
     </head>
     <body>
+        
         <div class="titles">
-            <h1>Project List</h1>
+            <h1 class ='header'>My Projects</h1>
+            <button class="add-button">Add Project + </button>
         </div>
 
 
-        <div class="box effect">
+        <% List<Project> projects = (List<Project>)request.getAttribute("projects");
+           for(int i=0;i<projects.size();i++){
+        %>
+           <div class="box effect">
             <div class="project-title">
-                <h1>Title of project</h1>
+                <h1><%= projects.get(i).name %></h1>
             </div>
             <div class="description">
                 <p>
-                    description
+                    <%= projects.get(i).desc +" more thing jakdf  dkafj dkfj "
+                            + "adjfk df kdfja dkfj a dfjak ajfaldjfkajdfk dkjfakd "
+                            + "kdjfakd j adkfj ka djfkd  kjdf a;dfk j adkfja fkj "
+                            + "ksdjf kad jfad kfd fj k a jdkfjakdjfakd kdjfakdf d"
+                            + "akdjfk  kdjfakd something is about to chan"
+                    %>
                 </p>
             </div>
-
         </div>
-        <div class="box effect">
-            <div class="project-title">
-                <h1>Title of project</h1>
-            </div>
-            <div class="description">
-                <p>
-                    In CSS, a margin is the space around an element's border, while padding is the space between an element's border and the element's content. Put another way, the margin property controls the space outside an element, and the padding property controls the space inside an element
-                    In CSS, a margin is the space around an element's border, while padding is the space between an element's border and the element's content. Put another way, the margin property controls the space outside an element, and the padding property controls the space inside an element
-                    In CSS, a margin is the space around an element's border, while padding is the space between an element's border and the element's content. Put another way, the margin property controls the space outside an element, and the padding property controls the space inside an element
-                    In CSS, a margin is the space around an element's border, while padding is the space between an element's border and the element's content. Put another way, the margin property controls the space outside an element, and the padding property controls the space inside an element
-                    
-                </p>
-            </div>
-
-        </div>
-        <div class="box effect">
-            <div class="project-title">
-                <h1>Title of project</h1>
-            </div>
-            <div class="description">
-                <p>
-                    description
-                </p>
-            </div>
-
-        </div>
+                        
+        <% } %>
     </body>
 </html>

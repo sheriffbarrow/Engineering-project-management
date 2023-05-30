@@ -38,9 +38,10 @@ public class userServlet extends HttpServlet {
             userbean.setPassword(password);
             
             UserAdmin useradmin = new UserAdmin();
-            
-           if(useradmin.login(userbean) != null) {
-               response.sendRedirect("projectList.jsp");
+            userbean = useradmin.login(userbean);
+           if(userbean != null) {
+               String redirectUrl = String.format("projectListServlet?user_id=%d",userbean.id);
+               response.sendRedirect(redirectUrl); 
            } else{
                response.sendRedirect("error.jsp");
            }

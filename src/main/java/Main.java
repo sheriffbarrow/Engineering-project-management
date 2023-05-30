@@ -40,8 +40,8 @@ public class Main {
             
             //creat porject tests:------------------------------------------
             Project pj = new Project();
-            pj.setId(3);
-            pj.setName("Test Project");
+            pj.setId(5);
+            pj.setName("Just added this Project");
             pj.setDesc("testing to see if it works");
             pj.setUserId(2);
             int affectedRows = proAdmin.createProject(pj);
