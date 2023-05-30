@@ -10,7 +10,7 @@ import java.util.*;
  * @author EJAS
  */
 public class Task {
-    int id;
+    public int id;
     public int projectId;
     public int userId;
     public String name;
