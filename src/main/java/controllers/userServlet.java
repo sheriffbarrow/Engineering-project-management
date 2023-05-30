@@ -38,8 +38,9 @@ public class userServlet extends HttpServlet {
             userbean.setPassword(password);
             
             UserAdmin useradmin = new UserAdmin();
+            
            if(useradmin.login(userbean) != null) {
-               response.sendRedirect("home.jsp");
+               response.sendRedirect("projectList.jsp");
            } else{
                response.sendRedirect("error.jsp");
            }

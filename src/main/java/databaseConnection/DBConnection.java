@@ -17,7 +17,7 @@ public class DBConnection {
     private static Connection conn = null;
     
     private static final String username = "root";
-    private static final String password = "ejas";
+    private static final String password = "s0249612579S";
     private static final String url = "jdbc:mysql://localhost/project_management?autoReconnect=true&useSSL=false";
     
     
