@@ -22,7 +22,8 @@
         </div>
 
 
-        <% List<Project> projects = (List<Project>)request.getAttribute("projects");
+        <div class='content'>
+            <% List<Project> projects = (List<Project>)request.getAttribute("projects");
            for(int i=0;i<projects.size();i++){
         %>
            <div class="box effect">
@@ -42,5 +43,6 @@
         </div>
                         
         <% } %>
+        </div>
     </body>
 </html>
