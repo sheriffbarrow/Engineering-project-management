@@ -12,6 +12,7 @@ import java.io.Serializable;
  */
 public class UserBean  implements Serializable{
     
+    public int id;
     String username;
     String password;
     
@@ -24,6 +25,10 @@ public class UserBean  implements Serializable{
     
     public String getUsername(){
         return username;
+    }
+    
+    public void setId(int pId){
+        this.id = pId;
     }
     
     public void setPassword(String password){

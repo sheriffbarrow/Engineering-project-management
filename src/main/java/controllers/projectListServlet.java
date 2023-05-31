@@ -10,6 +10,7 @@ import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ import java.util.List;
  *
  * @author EJAS
  */
+//@WebServlet(urlPatterns = {"/projectListServlet"})
 public class projectListServlet extends HttpServlet {
 
 
@@ -28,8 +30,10 @@ public class projectListServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             ProjectAdmin proAdmin = new ProjectAdmin();
+            int userId = Integer.parseInt(request.getParameter("user_id"));
+//            System.out.println(userId);
             try{
-                List<Project> projects = proAdmin.getProjects(2);
+                List<Project> projects = proAdmin.getProjects(userId);
                 request.setAttribute("projects", projects);
                 RequestDispatcher rd = request.getRequestDispatcher("projectList.jsp");
                 rd.forward(request, response);
