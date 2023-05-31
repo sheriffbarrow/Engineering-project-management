@@ -19,12 +19,13 @@
 
 
         <div class="box effect">
+            
             <div class="project-title">
-                <h1>Title of project</h1>
+                <h1></h1>
             </div>
             <div class="description">
                 <p>
-                    description
+                    
                 </p>
             </div>
 

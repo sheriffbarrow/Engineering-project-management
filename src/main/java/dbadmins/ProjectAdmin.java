@@ -44,7 +44,7 @@ public class ProjectAdmin {
             this.stmt = conn.createStatement();
             String query = String.format("SELECT * FROM project WHERE user_id = %d", userId);
             ResultSet rs = stmt.executeQuery(query);
-            List<Project> projects = new ArrayList<Project>();
+            List<Project> projects = new ArrayList<>();
             
             while (rs.next()) {
                 Project thisProject = new Project();

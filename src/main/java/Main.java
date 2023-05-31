@@ -20,8 +20,8 @@ public class Main {
         try{
             // login test:--------------------------------------------------
             UserBean bean = new UserBean();
-            bean.setUsername("ejas js");
-            bean.setPassword("something");
+            bean.setUsername("sheriff");
+            bean.setPassword("12345");
             
             System.out.println("user bean: " + bean.getUsername());
             System.out.println("user bean: " + bean.getPassword());
@@ -43,7 +43,7 @@ public class Main {
             pj.setId(3);
             pj.setName("Test Project");
             pj.setDesc("testing to see if it works");
-            pj.setUserId(2);
+            pj.setUserId(1);
             int affectedRows = proAdmin.createProject(pj);
             if(affectedRows > 0){
                 System.out.print("Rows afected: ");
@@ -68,11 +68,11 @@ public class Main {
     }
     
     public static void getProjects(ProjectAdmin proAdmin) throws Exception{
-        List<Project> projects = proAdmin.getProjects(2);
+        List<Project> projects = proAdmin.getProjects(1);
             if(projects.isEmpty()){
                 System.out.println("you've no projects");
             } else{
-                for(int i = 0;i<projects.size();i++){
+                for(int i = 0; i<projects.size(); i++){
                     System.out.println(projects.get(i).name);
                 }
             }
