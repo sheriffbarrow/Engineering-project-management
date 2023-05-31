@@ -9,6 +9,8 @@
  */
 import dbadmins.*;
 import entities.*;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 
 public class Main {
@@ -19,48 +21,67 @@ public class Main {
         TaskAdmin taskAdmin = new TaskAdmin();
         try{
             // login test:--------------------------------------------------
-            UserBean bean = new UserBean();
-            bean.setUsername("sheriff");
-            bean.setPassword("12345");
-            
-            System.out.println("user bean: " + bean.getUsername());
-            System.out.println("user bean: " + bean.getPassword());
-
-            UserAdmin useradmin = new UserAdmin();
-            UserBean user = useradmin.login(bean);
-            if(user == null){
-                System.out.println("not logged in");
-            } else{
-                System.out.println("logged in successfully");
-            }
+//            UserBean bean = new UserBean();
+//            bean.setUsername("sheriff");
+//            bean.setPassword("12345");
+//            
+//            System.out.println("user bean: " + bean.getUsername());
+//            System.out.println("user bean: " + bean.getPassword());
+//
+//            UserAdmin useradmin = new UserAdmin();
+//            UserBean user = useradmin.login(bean);
+//            if(user == null){
+//                System.out.println("not logged in");
+//            } else{
+//                System.out.println("logged in successfully");
+//            }
             
             
             // get projects tests:------------------------------------------
             getProjects(proAdmin);
             
-            //creat porject tests:------------------------------------------
-            Project pj = new Project();
-            pj.setId(5);
-            pj.setName("Just added this Project");
-            pj.setDesc("testing to see if it works");
-            pj.setUserId(1);
-            int affectedRows = proAdmin.createProject(pj);
-            if(affectedRows > 0){
-                System.out.print("Rows afected: ");
-                System.out.println(affectedRows);
-                getProjects(proAdmin);
-            }
+            //create porject tests:------------------------------------------
+//            Project pj = new Project();
+////            pj.setId(5);
+//            pj.setName("Test Project");
+//            pj.setDesc("testing to see if it works");
+//            pj.setUserId(2);
+//            int affectedRows = proAdmin.createProject(pj);
+//            if(affectedRows > 0){
+//                System.out.print("Rows afected: ");
+//                System.out.println(affectedRows);
+//                getProjects(proAdmin);
+//            }
             
             // get Tasks for project:---------------------------------------
-//            List<Task> tasks = taskAdmin.getTasks(1,"todo");
+//            Hashtable<String,List<Task>> tasks = new Hashtable<>();
+//            List<Task> todos = taskAdmin.getTasks(2, "todo");
+//            List<Task> inProgress = taskAdmin.getTasks(2,"in progress");
+//            List<Task> done = taskAdmin.getTasks(2, "done");
+//            tasks.put("todos", todos);
+//            tasks.put("in progress", inProgress);
+//            tasks.put("done", done);
 //            if(tasks.isEmpty()){
 //                System.out.println(" no tasks for this project");
 //            } else{
 //                for(int i =0;i<tasks.size();i++){
-//                    System.out.println(tasks.get(i).name);
+//                    System.out.println(i);
+//                    String currentKey;
+//                    switch(i){
+//                        case 0: currentKey = "todos";
+//                        break;
+//                        case 1: currentKey = "in progress";
+//                        break;
+//                        default: currentKey = "done";
+//                        break;
+//                    }
+//                    System.out.println(currentKey);
+//                    for(int index=0;index<tasks.get(currentKey).size();index++){
+//                        System.out.println(tasks.get(currentKey).get(index).name);
+//                    }
 //                }
 //            }
-            
+//            
         } catch(Exception e){
             System.out.println(e.getMessage());
         }

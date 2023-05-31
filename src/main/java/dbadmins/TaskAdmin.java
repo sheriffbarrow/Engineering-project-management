@@ -41,7 +41,7 @@ public class TaskAdmin {
         try{
             this.conn = DBConnection.dBconnect();
             this.stmt = conn.createStatement();
-            String query = String.format("SELECT * FROM Task WHERE project_id = %d AND status = '%s'", projId, status);
+            String query = String.format("SELECT * FROM task WHERE project_id = %d AND status = '%s'", projId, status);
             ResultSet rs = stmt.executeQuery(query);
             List<Task> tasks = new ArrayList<Task>();
             

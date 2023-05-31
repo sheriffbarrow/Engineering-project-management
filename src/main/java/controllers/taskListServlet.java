@@ -4,22 +4,24 @@
  */
 package controllers;
 
-import dbadmins.ProjectAdmin;
-import entities.Project;
+import dbadmins.TaskAdmin;
+import entities.Task;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
+import java.util.Dictionary;
+import java.util.Hashtable;
 
 /**
  *
  * @author EJAS
  */
-public class createProjectServlet extends HttpServlet {
+public class taskListServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,23 +33,25 @@ public class createProjectServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, Exception {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Project prj = new Project();
-            prj.setName(request.getParameter("name"));
-            prj.setDesc(request.getParameter("description"));
-            prj.setUserId(Integer.parseInt(request.getParameter("user_id")));
             
-            ProjectAdmin proAdmin = new ProjectAdmin();
-            int rowsAffected = proAdmin.createProject(prj);
-            if(rowsAffected > 0){
-                //TODO: created successfully
-                String redirectUrl = String.format("projectListServlet?user_id=%d",prj.userId);
-                response.sendRedirect(redirectUrl); 
-            } else{
-//                TODO: show some error code
-                  response.sendRedirect("error.jsp");
+            int projectId = Integer.parseInt(request.getParameter("project_id"));
+            TaskAdmin taskAdmin = new TaskAdmin();
+            try{
+                Dictionary<String,List> tasks = new Hashtable<>();
+                List<Task> todos = taskAdmin.getTasks(projectId, "todo");
+                List<Task> inProgress = taskAdmin.getTasks(projectId,"in progress");
+                List<Task> done = taskAdmin.getTasks(projectId, "done");
+                tasks.put("todos", todos);
+                tasks.put("in progress", inProgress);
+                tasks.put("done", done);
+                request.setAttribute("tasks", tasks);
+                RequestDispatcher rd = request.getRequestDispatcher("");
+                rd.forward(request, response);
+            } catch(Exception e){
+                System.out.println("something unexpected happened");
             }
         }
     }
@@ -64,11 +68,7 @@ public class createProjectServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(createProjectServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -82,11 +82,7 @@ public class createProjectServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(createProjectServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

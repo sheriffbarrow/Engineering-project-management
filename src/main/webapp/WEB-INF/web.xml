@@ -12,6 +12,10 @@
         <servlet-name>createProjectServlet</servlet-name>
         <servlet-class>controllers.createProjectServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>taskListServlet</servlet-name>
+        <servlet-class>controllers.taskListServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>sandBox</servlet-name>
         <url-pattern>/sandBox</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>createProjectServlet</servlet-name>
         <url-pattern>/createProjectServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>taskListServlet</servlet-name>
+        <url-pattern>/taskListServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
