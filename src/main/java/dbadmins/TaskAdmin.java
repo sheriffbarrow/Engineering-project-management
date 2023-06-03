@@ -52,8 +52,8 @@ public class TaskAdmin {
                 thisTask.setName(rs.getString("name"));
                 thisTask.setDesc(rs.getString("description"));
                 thisTask.setStatus(rs.getString("status"));
-                thisTask.setStartDate(rs.getDate("start_date"));
-                thisTask.setEndDate(rs.getDate("end_date"));
+                thisTask.setStartDate(rs.getString("start_date"));
+                thisTask.setEndDate(rs.getString("end_date"));
                 
                 tasks.add(thisTask);
             }

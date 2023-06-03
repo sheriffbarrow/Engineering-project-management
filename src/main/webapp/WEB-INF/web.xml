@@ -16,6 +16,10 @@
         <servlet-name>taskListServlet</servlet-name>
         <servlet-class>controllers.taskListServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>createTaskServlet</servlet-name>
+        <servlet-class>controllers.createTaskServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>sandBox</servlet-name>
         <url-pattern>/sandBox</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>taskListServlet</servlet-name>
         <url-pattern>/taskListServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>createTaskServlet</servlet-name>
+        <url-pattern>/createTaskServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

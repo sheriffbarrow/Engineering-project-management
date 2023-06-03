@@ -4,28 +4,21 @@
  */
 package controllers;
 
-import dbadmins.TaskAdmin;
-import dbadmins.ProjectAdmin;
-import entities.Task;
-import entities.Project;
-import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
-import java.util.Dictionary;
-import java.util.Hashtable;
+import entities.Task;
+import dbadmins.TaskAdmin;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /**
  *
  * @author EJAS
  */
-public class taskListServlet extends HttpServlet {
+public class createTaskServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,29 +33,24 @@ public class taskListServlet extends HttpServlet {
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            int projectId = Integer.parseInt(request.getParameter("project_id"));
-            // get project:---------------------------------------------------
-            ProjectAdmin proAdmin = new ProjectAdmin();
-            Project project = proAdmin.getProject(projectId);
-            request.setAttribute("project", project);
+            Task task = new Task();
+            task.setName(request.getParameter("name"));
+            task.setDesc(request.getParameter("description"));
+            task.setStartDate(request.getParameter("start_date"));
+            task.setEndDate(request.getParameter("end_date"));
+            task.setStatus(request.getParameter("status"));
+            task.setProjectId(Integer.parseInt(request.getParameter("project_id")));
             
-            // get tasks for this project:---------------------------------------------------
             TaskAdmin taskAdmin = new TaskAdmin();
-            try{
-                Dictionary<String,List> tasks = new Hashtable<>();
-                List<Task> todos = taskAdmin.getTasks(projectId, "todo");
-                List<Task> inProgress = taskAdmin.getTasks(projectId,"in progress");
-                List<Task> done = taskAdmin.getTasks(projectId, "done");
-                tasks.put("todos", todos);
-                tasks.put("in progress", inProgress);
-                tasks.put("done", done);
-                request.setAttribute("tasks", tasks);
-                RequestDispatcher rd = request.getRequestDispatcher("tasklist.jsp");
-                rd.forward(request, response);
-            } catch(Exception e){
-                System.out.println("something unexpected happened");
-                throw e;
+            int rowsAffected = taskAdmin.createTask(task);
+            if(rowsAffected > 0){
+                String redirectUrl = String.format("");
+                response.sendRedirect(redirectUrl);
+            }else{
+               response.sendRedirect("error.jsp");
             }
+            
+            
         }
     }
 
@@ -81,7 +69,7 @@ public class taskListServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(taskListServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(createTaskServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -99,7 +87,7 @@ public class taskListServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(taskListServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(createTaskServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

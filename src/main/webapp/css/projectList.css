@@ -44,6 +44,10 @@ body {
     background:#FFF;
 }
 
+a{
+    text-decoration: none;
+}
+
 .content{
     marting: 40px auto;
     color: red;

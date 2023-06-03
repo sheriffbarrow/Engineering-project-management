@@ -16,8 +16,8 @@ public class Task {
     public String name;
     public String desc;
     public String status;
-    public Date startDate;
-    public Date endDate;
+    public String startDate;
+    public String endDate;
     
     
     public Task(){}
@@ -46,11 +46,11 @@ public class Task {
         this.status = status;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
     

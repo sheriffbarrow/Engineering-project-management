@@ -1,0 +1,199 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 1, 2023, 10:45:42 AM
+    Author     : EJAS
+*/
+
+body{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    bakground-color: white;
+}
+
+.side-panel{
+    background-color: #4B6A74;
+    flex-direction: column;
+    width: 220px;
+    height: 100vh;
+    padding: 20px;
+    
+}
+
+h3{
+    font-family: Arial;
+    font-size: 26px;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 20px;
+    /*background-color: pink;*/
+}
+
+p{
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+.status{
+    float: right;
+    display:inline;
+    margin:0;
+    padding: 8px 30px;
+    background-color: lightgrey;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #252525;
+    
+}
+
+button{
+    border: none;
+    padding: 10px 50px;
+    border-radius: 50px;
+    background-color: white;
+    color: #4B6A74;
+    font-size: 16px;
+    position: absolute;
+    bottom: 20px;
+}
+
+.content{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 0 20px;
+}
+
+.task-list{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    height: 93vh;
+    heigh: 100px;
+}
+
+.list-section{
+    background-color: white;
+    padding: 0 20px;
+    /*overflow-y: scroll;*/
+    height: 100vh;
+    
+}
+
+.task-item{
+    width: 280px;
+    /*height: 60px;*/
+    padding: 12px 20px;
+    background-color: #E4F1F6;
+    border-radius: 15px;
+    margin: 15px;
+    color: #242424;
+}
+
+.task-name{
+    margin-bottom: 13px;
+    font-size: 17.2px;
+    color: #242424;
+}
+
+h4{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Arial;
+    margin: 25px 0 10px 15px;
+}
+
+.inline{
+    display: inline;
+}
+
+.modal{
+  display: none;  /*Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+  border-radius: 30px;
+  /*height: 365px;*/
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  /*float: left;*/
+  font-size: 28px;
+  font-weight: bold;
+  /*display: block;*/
+  margin-right: 30px;
+  diaplay:inline;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.row{
+    diaplay: flex;
+    padding: 5px 0;
+    /*background-color: red;*/
+    align-items: center;
+    justify-content: space-between;
+}
+
+.margin-btm{
+    margin-bottom: 30px;
+}
+.desc-field{
+    height: 200px;
+    border-width: 2px;
+    border-color: #4B6A74;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 15px;
+    font-family: Arial;
+    resize: none;
+    margin-bottom: 25px;
+}
+
+.date-style {
+    border-width: 2px;
+    border-color: #4B6A74;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    width: 250px;
+}
+
+.float-right{
+    float: right;
+}
+
+.float-left{
+    float: left;
+    margin-right: 45px;
+}

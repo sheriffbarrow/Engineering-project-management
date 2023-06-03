@@ -25,14 +25,17 @@
         <div class='content'>
             <% List<Project> projects = (List<Project>)request.getAttribute("projects");
            for(int i=0;i<projects.size();i++){
+           Project prj = projects.get(i);
+           String ref = String.format("taskListServlet?project_id=%d",prj.id);
         %>
-           <div class="box effect">
+        <a href=<%= ref %>>
+            <div class="box effect" a>
             <div class="project-title">
-                <h1><%= projects.get(i).name %></h1>
+                <h1><%= prj.name %></h1>
             </div>
             <div class="description">
                 <p>
-                    <%= projects.get(i).desc +" more thing jakdf  dkafj dkfj "
+                    <%= prj.desc +" more thing jakdf  dkafj dkfj "
                             + "adjfk df kdfja dkfj a dfjak ajfaldjfkajdfk dkjfakd "
                             + "kdjfakd j adkfj ka djfkd  kjdf a;dfk j adkfja fkj "
                             + "ksdjf kad jfad kfd fj k a jdkfjakdjfakd kdjfakdf d"
@@ -41,6 +44,7 @@
                 </p>
             </div>
         </div>
+        </a>
                         
         <% } %>
         </div>

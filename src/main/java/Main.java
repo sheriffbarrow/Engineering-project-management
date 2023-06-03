@@ -9,7 +9,6 @@
  */
 import dbadmins.*;
 import entities.*;
-import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -20,10 +19,15 @@ public class Main {
         ProjectAdmin proAdmin = new ProjectAdmin();
         TaskAdmin taskAdmin = new TaskAdmin();
         try{
+            
+            // getproject test:---------------------------------------------
+            Project prj = new Project();
+            prj = proAdmin.getProject(1);
+            System.out.println(prj.name);
             // login test:--------------------------------------------------
 //            UserBean bean = new UserBean();
-//            bean.setUsername("sheriff");
-//            bean.setPassword("12345");
+//            bean.setUsername("root");
+//            bean.setPassword("ejas");
 //            
 //            System.out.println("user bean: " + bean.getUsername());
 //            System.out.println("user bean: " + bean.getPassword());
@@ -35,15 +39,15 @@ public class Main {
 //            } else{
 //                System.out.println("logged in successfully");
 //            }
-            
+//            
             
             // get projects tests:------------------------------------------
-            getProjects(proAdmin);
+//            getProjects(proAdmin);
             
             //create porject tests:------------------------------------------
 //            Project pj = new Project();
 ////            pj.setId(5);
-//            pj.setName("Test Project");
+//            pj.setName("Final Test Project");
 //            pj.setDesc("testing to see if it works");
 //            pj.setUserId(2);
 //            int affectedRows = proAdmin.createProject(pj);
@@ -54,34 +58,34 @@ public class Main {
 //            }
             
             // get Tasks for project:---------------------------------------
-//            Hashtable<String,List<Task>> tasks = new Hashtable<>();
-//            List<Task> todos = taskAdmin.getTasks(2, "todo");
-//            List<Task> inProgress = taskAdmin.getTasks(2,"in progress");
-//            List<Task> done = taskAdmin.getTasks(2, "done");
-//            tasks.put("todos", todos);
-//            tasks.put("in progress", inProgress);
-//            tasks.put("done", done);
-//            if(tasks.isEmpty()){
-//                System.out.println(" no tasks for this project");
-//            } else{
-//                for(int i =0;i<tasks.size();i++){
-//                    System.out.println(i);
-//                    String currentKey;
-//                    switch(i){
-//                        case 0: currentKey = "todos";
-//                        break;
-//                        case 1: currentKey = "in progress";
-//                        break;
-//                        default: currentKey = "done";
-//                        break;
-//                    }
-//                    System.out.println(currentKey);
-//                    for(int index=0;index<tasks.get(currentKey).size();index++){
-//                        System.out.println(tasks.get(currentKey).get(index).name);
-//                    }
-//                }
-//            }
-//            
+            Hashtable<String,List<Task>> tasks = new Hashtable<>();
+            List<Task> todos = taskAdmin.getTasks(2, "todo");
+            List<Task> inProgress = taskAdmin.getTasks(2,"in progress");
+            List<Task> done = taskAdmin.getTasks(2, "done");
+            tasks.put("todos", todos);
+            tasks.put("in progress", inProgress);
+            tasks.put("done", done);
+            if(tasks.isEmpty()){
+                System.out.println(" no tasks for this project");
+            } else{
+                for(int i =0;i<tasks.size();i++){
+                    System.out.println(i);
+                    String currentKey;
+                    switch(i){
+                        case 0: currentKey = "todos";
+                        break;
+                        case 1: currentKey = "in progress";
+                        break;
+                        default: currentKey = "done";
+                        break;
+                    }
+                    System.out.println(currentKey);
+                    for(int index=0;index<tasks.get(currentKey).size();index++){
+                        System.out.println(tasks.get(currentKey).get(index).name);
+                    }
+                }
+            }
+        
         } catch(Exception e){
             System.out.println(e.getMessage());
         }
@@ -89,7 +93,7 @@ public class Main {
     }
     
     public static void getProjects(ProjectAdmin proAdmin) throws Exception{
-        List<Project> projects = proAdmin.getProjects(1);
+        List<Project> projects = proAdmin.getProjects(2);
             if(projects.isEmpty()){
                 System.out.println("you've no projects");
             } else{

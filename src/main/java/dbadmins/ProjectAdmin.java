@@ -71,5 +71,21 @@ public class ProjectAdmin {
             throw e;
         }
     }
-//    
+    
+    public Project getProject(int prjId) throws Exception{
+        try{
+            this.conn = DBConnection.dBconnect();
+            this.stmt = conn.createStatement();
+            String query = String.format("SELECT * FROM project WHERE project_id = %d",prjId);
+            ResultSet rs = stmt.executeQuery(query);
+            Project project = new Project();
+            rs.next();
+            project.setId(rs.getInt("project_id"));
+            project.setName(rs.getString("name"));
+            project.setDesc(rs.getString("description"));
+            return project;
+        } catch(Exception e){
+            throw e;
+        }
+    }
 }
