@@ -39,8 +39,8 @@
                             <textarea id="w3review" placeholder="Description" name="w3review" rows="6" cols="60" style="background-color: #E4F1F6;"></textarea>
                             <div style="margin-top: 20px;">
 
-                                <input placeholder="Start Date" type="text" onfocus="(this.type = 'date')" onblur="(this.type = 'text')" id="date" id="birthday" name="birthday" style="background-color: #E4F1F6; height: 50px; ">
-                                <input placeholder="End Date"  type="text" onfocus="(this.type = 'date')" onblur="(this.type = 'text')" id="date" id="birthday" name="birthday" style="float:right; margin-right: 5px; background-color: #E4F1F6; height: 50px;">
+                                <input placeholder="Start Date" type="text" onfocus="(this.type = 'date')" onblur="(this.type = 'text')" id="date" id="start-date" name="start-date" style="background-color: #E4F1F6; height: 50px; ">
+                                <input placeholder="End Date"  type="text" onfocus="(this.type = 'date')" onblur="(this.type = 'text')" id="date" id="end-date" name="end-date" style="float:right; margin-right: 5px; background-color: #E4F1F6; height: 50px;">
                             </div>       
                         </div>
                     </form>
