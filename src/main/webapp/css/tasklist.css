@@ -45,14 +45,23 @@ p{
     display:inline;
     margin:0;
     padding: 8px 30px;
-    background-color: lightgrey;
+    background-color: #FFEB39;
     border-radius: 50px;
     font-size: 14px;
     color: #252525;
+}
+
+.todo-color{
+    background-color: lightgray;
     
 }
 
-button{
+.done-color{
+    background: green;
+    color: white;
+}
+
+.create-button{
     border: none;
     padding: 10px 50px;
     border-radius: 50px;
@@ -76,7 +85,8 @@ button{
     -ms-overflow-style: none;
     scrollbar-width: none;
     height: 93vh;
-    heigh: 100px;
+    /*background-color: pink;*/
+    /*width: 330px;*/
 }
 
 .list-section{
@@ -90,10 +100,13 @@ button{
 .task-item{
     width: 280px;
     /*height: 60px;*/
+    border: none;
+    text-align: left;
     padding: 12px 20px;
     background-color: #E4F1F6;
     border-radius: 15px;
     margin: 15px;
+    font-size: 15px;
     color: #242424;
 }
 

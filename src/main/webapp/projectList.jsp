@@ -32,7 +32,7 @@
                         <span onclick="document.getElementById('id01').style.display = 'none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                         <div style="float: left; margin-left: 15px; font-size: 30px; font-family: Arial;"> Create Project</div>
                     </div>
-
+w3
                     <form class="w3-container" action="" method="post">
                         <div class="w3-section">
                             <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Project Name" name="project-name" required style="background-color: #E4F1F6; height: 70px;">
@@ -66,12 +66,7 @@
             </div>
             <div class="description">
                 <p>
-                    <%= prj.desc +" more thing jakdf  dkafj dkfj "
-                            + "adjfk df kdfja dkfj a dfjak ajfaldjfkajdfk dkjfakd "
-                            + "kdjfakd j adkfj ka djfkd  kjdf a;dfk j adkfja fkj "
-                            + "ksdjf kad jfad kfd fj k a jdkfjakdjfakd kdjfakdf d"
-                            + "akdjfk  kdjfakd something is about to chan"
-                    %>
+                    <%= prj.desc%>
                 </p>
             </div>
         </div>
